@@ -1,0 +1,134 @@
+@import "../colors";
+.big-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10vh;
+  width: 50%;
+  margin: auto;
+  .notch {
+    margin-top: 5rem;
+
+    .notch-content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      background-color: $color-accent-purple;
+      height: 8vh;
+      padding: 1rem;
+      box-sizing: border-box;
+      border-radius: 0.5rem;
+
+      .room-name {
+        margin: 0px;
+        justify-content: center;
+        height: 100%;
+        color: white;
+        text-align: center;
+        vertical-align: middle;
+        display: table;
+        p {
+          display: table-cell;
+          vertical-align: middle;
+          font-size: 1.9rem;
+        }
+      }
+      .share {
+        width: 100%;
+        height: 100%;
+        background-image: url(../../assets/share.svg);
+        height: 100%;
+        width: 4vw;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+      .share:hover {
+        cursor: pointer;
+        background-image: url(../../assets/share-hover.svg);
+      }
+    }
+  }
+}
+
+.waiting-votes-msg {
+  font-size: 18px;
+  font-weight: bold;
+  color: $color-accent-purple;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 8rem;
+  position: absolute;
+  top: 5rem;
+  left: 80vw;
+  button {
+    height: 8.3vh;
+  }
+
+  .show-values-btn,
+  .delete-values-btn {
+    border: 2px solid $color-accent-purple;
+  }
+}
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  padding: 5vw 8vw 2vw 8vw;
+  gap: 3rem;
+
+  .cards {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+    padding: 10px;
+    .card.card-coffee-cup {
+      font-size: 50px;
+    }
+    .card {
+      height: 16vw;
+      min-height: 100px;
+      width: 10vw;
+      min-width: 100px;
+      font-size: 2rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .card:hover {
+      cursor: pointer;
+      background-color: rgba(103, 59, 183, 0.8);
+      color: white;
+    }
+
+    .card-disabled {
+      color: grey;
+      background-color: transparent;
+      pointer-events: none;
+    }
+
+    .card-disabled.card:hover {
+      background-color: transparent;
+      color: grey;
+    }
+
+    .card:hover.card-selected,
+    .card-selected {
+      background-color: $color-accent-purple;
+      color: white;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .cards {
+      overflow-x: scroll;
+    }
+  }
+
+  button {
+    height: 8.3vh;
+    width: 8rem;
+    margin-bottom: 3rem;
+    align-self: flex-end;
+  }
+}

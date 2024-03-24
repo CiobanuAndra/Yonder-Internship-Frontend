@@ -1,0 +1,45 @@
+<div class="form-container">
+  <h2 class="form-title">Create a room</h2>
+
+  <form [formGroup]="createRoomForm" (ngSubmit)="sendCreateRoomRequest()">
+    <mat-form-field class="form-group">
+      <input
+        matInput
+        placeholder="Username"
+        id="username"
+        name="username"
+        formControlName="username"
+      />
+      <mat-hint>{{ username?.value?.length || 0 }}/100</mat-hint>
+    </mat-form-field>
+    <span
+      class="form-error-message"
+      *ngIf="
+        username && username.invalid && (username.touched || username.dirty)
+      "
+      >The username should be between 1 and 100 characters, should not contain
+      white spaces, special character or digits only.</span
+    >
+
+    <mat-form-field class="form-group">
+      <input
+        matInput
+        placeholder="Room Name"
+        id="roomName"
+        formControlName="roomName"
+      />
+      <mat-hint>{{ roomName?.value?.length || 0 }}/100</mat-hint>
+    </mat-form-field>
+    <span
+      class="form-error-message"
+      *ngIf="
+        roomName && roomName.invalid && (roomName.touched || roomName.dirty)
+      "
+      >The room name should be between 6 and 100 characters, should not contain
+      white spaces, special character or digits only.</span
+    >
+
+    <button mat-raised-button color="primary" class="submit-btn">Submit</button>
+    
+  </form>
+</div>

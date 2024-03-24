@@ -1,0 +1,16 @@
+.full-width-table {
+  width: 100%;
+  td,
+  th {
+    font-size: 2vh;
+  }
+}
+
+:host::ng-deep .data-table mat-spinner {
+  margin: 0 auto;
+  padding-top: 6rem;
+  .mdc-circular-progress__determinate-container,
+  .mdc-circular-progress__indeterminate-container {
+    translate: 0px -6rem;
+  }
+}

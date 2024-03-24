@@ -1,0 +1,50 @@
+<div class="form-container">
+  <h2 class="form-title">Join a room</h2>
+
+  <form [formGroup]="joinRoomForm" (ngSubmit)="sendJoinRoomRequest()">
+    <mat-form-field class="form-group">
+      <input
+        matInput
+        placeholder="Username"
+        id="username"
+        name="username"
+        formControlName="username"
+      />
+      <mat-hint>{{ username?.value?.length || 0 }}/100</mat-hint>
+    </mat-form-field>
+    <span
+      id="first-input-error"
+      class="form-error-message"
+      *ngIf="
+        username && username.invalid && (username.touched || username.dirty)
+      "
+      >The username should be between 1 and 100 characters, should not contain
+      white spaces, special character or digits only.</span
+    >
+
+    <mat-form-field
+      class="form-group"
+      appearance="fill"
+      [ngClass]="{ 'pre-filled': isRoomIdDisabled }"
+    >
+      <input
+        matInput
+        placeholder="Room ID"
+        id="roomID"
+        formControlName="roomID"
+        [mask]="'AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA'"
+        [dropSpecialCharacters]="false"
+      />
+      <mat-hint>{{ roomID?.value?.length || 0 }}/36</mat-hint>
+    </mat-form-field>
+    <span
+      id="second-input-error"
+      class="form-error-message"
+      *ngIf="roomID && roomID.invalid && roomID.touched"
+      >Invalid Room ID . Please enter a valid GUID in the Room ID input
+      field.</span
+    >
+
+    <button mat-raised-button color="primary" class="submit-btn">Submit</button>
+  </form>
+</div>

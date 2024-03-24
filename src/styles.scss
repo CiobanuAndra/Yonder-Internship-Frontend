@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./app/colors";
+
+html,
+body {
+  height: 100%;
+  background-color: $color-bg-white;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// SnackBar CSS override
+.mat-mdc-snack-bar-container {
+  --mat-mdc-snack-bar-button-color: #ececec;
+  --mdc-snackbar-supporting-text-color: #ececec;
+  --mdc-snackbar-container-color: #673bb7;
+}

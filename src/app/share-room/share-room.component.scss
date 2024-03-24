@@ -1,0 +1,26 @@
+@import "../colors";
+
+.share-modal--container {
+  width: 100%;
+  min-height: 15rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .share-modal--title {
+    font-size: 25px;
+    font-weight: bold;
+    color: $color-accent-purple;
+  }
+
+  .share-modal--link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    font-weight: bold;
+  }
+}

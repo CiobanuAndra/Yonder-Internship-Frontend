@@ -1,0 +1,70 @@
+@import "../_colors";
+
+:host {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  min-width: 400px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  border: 2px solid $color-accent-purple;
+  border-radius: 10px;
+
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.1);
+
+  padding: 20px 0;
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    .form-group {
+      width: 300px;
+
+      mat-hint {
+        position: absolute;
+        right: 10px;
+        color: grey;
+      }
+    }
+
+    .form-error-message {
+      max-width: 300px;
+      color: red;
+    }
+
+    .submit-btn {
+      width: 100px;
+      align-self: flex-end;
+    }
+
+    .pre-filled {
+      pointer-events: none;
+
+      input {
+        color: rgb(142, 142, 142);
+        font-weight: 200;
+      }
+    }
+
+    ::ng-deep .pre-filled .mat-mdc-text-field-wrapper {
+      background-color: transparent;
+      border: none;
+    }
+
+    ::ng-deep .pre-filled .mdc-text-field .mdc-line-ripple::before {
+      border-color: rgba(0, 0, 0, 0.06);
+    }
+  }
+}

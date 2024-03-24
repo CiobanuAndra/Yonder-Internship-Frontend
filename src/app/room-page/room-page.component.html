@@ -1,0 +1,71 @@
+<div class="big-container">
+  <section class="notch">
+    <div class="notch-content">
+      <div class="room-name">
+        <p>{{ roomDetails.name }}</p>
+      </div>
+      <div class="share" (click)="openShareModal()"></div>
+    </div>
+  </section>
+
+  <section class="table">
+    <app-data-table
+      [currentUserValue]="submittedCard ?? ''"
+      (valuesShowed)="disableEnableCardStack($event)"
+    ></app-data-table>
+  </section>
+</div>
+
+<section
+  class="buttons"
+  *ngIf="roomDetails.username == roomDetails.scrumMaster"
+>
+  <button
+    mat-stroked-button
+    color="primary"
+    class="show-values-btn"
+    (click)="openConfirmationModal('showValues')"
+  >
+    SHOW VALUES
+  </button>
+  <button
+    mat-stroked-button
+    color="primary"
+    class="delete-values-btn"
+    (click)="openConfirmationModal('deleteValues')"
+  >
+    DELETE VALUES
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="openConfirmationModal('endRoom')"
+  >
+    END ROOM
+  </button>
+</section>
+
+<section class="cards-container">
+  <div class="cards">
+    <mat-card class="card card-coffee-cup" id="0" (click)="selectCard($event)">
+      ☕
+    </mat-card>
+
+    <mat-card
+      *ngFor="let x of [0.5, 1, 2, 3, 5, 8, 13]"
+      class="card"
+      id="{{ x }}"
+      (click)="selectCard($event)"
+      >{{ x }}</mat-card
+    >
+  </div>
+
+  <button
+    mat-raised-button
+    color="primary"
+    id="submitBtn"
+    (click)="submitVote()"
+  >
+    SUBMIT
+  </button>
+</section>

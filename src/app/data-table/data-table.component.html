@@ -1,0 +1,34 @@
+<span class="waiting-votes-msg" *ngIf="!votesShown && userSubmitted"
+  >Waiting for vote to end</span
+>
+<div class="mat-elevation-z8 data-table">
+  <table
+    mat-table
+    class="full-width-table"
+    matSort
+    aria-label="Elements"
+    [dataSource]="datasource"
+  >
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Names</th>
+      <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+    </ng-container>
+
+    <!-- StoryPoints Column -->
+    <ng-container matColumnDef="storyPoints">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Story Points</th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.storyPoints === "0" ? "☕" : row.storyPoints }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-spinner
+    class="spinner"
+    *ngIf="tableDataLoading"
+    diameter="50"
+  ></mat-spinner>
+</div>

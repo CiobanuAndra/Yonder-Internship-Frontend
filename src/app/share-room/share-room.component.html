@@ -1,0 +1,11 @@
+<div class="share-modal--container">
+  <h1 class="share-modal--title">{{ roomDetails.name }}</h1>
+
+  <div class="share-modal--link">
+    <span class="room-link"> {{ roomDetails.roomId }} </span>
+
+    <button mat-raised-button color="primary" (click)="copyRoomInviteLink()">
+      Copy Invite Link
+    </button>
+  </div>
+</div>
